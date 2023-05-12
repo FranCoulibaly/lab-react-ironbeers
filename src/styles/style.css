@@ -1,0 +1,38 @@
+.beer {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 ;
+    border-top: 1px solid grey;
+    padding-top: 1em;
+    height: 150px;
+}
+
+.beerImg {
+    max-width: 5em;
+    padding: 1em;
+}
+.beerInfo {
+    margin: auto;
+}
+.beerInfo h3 {
+    font-size: 1em;
+}
+.beerInfo h2 {
+    font-size: 1.5em;
+}
+.singleBeer {
+    display: flex;
+    flex-direction: column;
+}
+.singleBeer img {
+    margin: auto;
+}
+.singleBeerInfo {
+    display: flex;
+    flex-direction: row;
+}
+.singleBeerInfo p {
+    margin-left: auto;
+    margin-bottom: 0;
+    align-self: center;
+}
