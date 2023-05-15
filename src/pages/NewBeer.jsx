@@ -14,7 +14,17 @@ function NewBeer(){
     });
 
    const handleFormSubmit = (e) => {
-        
+    e.preventDefault();
+
+    console.log("here")
+        fetch("https://ih-beers-api2.herokuapp.com/beers/new", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => console.log("Success: ", data))
+        .catch(err => console.log("Failed: ", err));
 
     }
 
@@ -23,12 +33,11 @@ function NewBeer(){
             ...formData,
             [e.target.name]: e.target.value,
         });
-        console.log(formData);
     }
 
     return(
         <>
-            <Form>
+            <Form onSubmit={handleFormSubmit}>
                 <Form.Group  >
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="Name" name="name" value={formData.name} onChange={handleInputChange}/>
@@ -58,7 +67,7 @@ function NewBeer(){
                     <Form.Control type="text" placeholder="Contributed By" name="contributed_by" value={formData.contributed_by} onChange={handleInputChange}/>
                 </Form.Group> 
 
-                <Button type="submit" variant="primary" onSubmit={handleFormSubmit}>
+                <Button type="submit" variant="primary" >
                     Submit
                 </Button>
             </Form>
